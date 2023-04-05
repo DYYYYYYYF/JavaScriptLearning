@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <script>
+        //基本数据类型
+        var i = 1;
+        var d = 1.1;
+        var c = "a";
+        var s = "1";
+        var b = true;
+
+        document.write(typeof(i)+"<br>")
+        document.write(typeof(d)+"<br>")
+        document.write(typeof(c)+"<br>")
+        document.write(typeof(s)+"<br>")
+
+        //boolean
+        document.write((s == i)+"<br>")
+        document.write((s === i)+"<br>")
+
+        //逻辑判断
+        var res = (s==i);
+        var x = 1;
+        var y = 2;
+        // | & !
+        var res = x | y;
+        document.write(res + "<br>")
+        var res = x & y;
+        document.write(res + "<br>")
+    </script>
+</body>
+</html>

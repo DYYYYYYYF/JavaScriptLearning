@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<<device-width>>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.onload = function(){
+            //结果
+            var res = 0;
+            //当前变量, 当前结果, 当前按下的数字
+            var curVal = 0; curRes = 0; tempVal = 0;
+            //运算符
+            var type = "";
+
+            //计算函数
+            cacluate = function(a, b, type){
+                //判断运算符进行对应计算
+                if(type == "+") res = Number.parseInt(a) + Number.parseInt(b);
+                else if(type == "-") res = a - b;
+                else if(type == "*") res = a * b;
+                else if(type == "/") res = a / b;
+                //将计算结果写入输出栏
+                document.getElementById("output").innerText = res;
+                //刷新变量
+                init();
+            }
+
+            //监听函数， 每一个数字按键， 获取数值
+            getValue = function(val){
+                //当前按下的数字
+                tempVal = val.innerText;
+                //没有按下运算符， 则拼接第一个待运算变量
+                if(type == "") {
+                    curVal = curVal + tempVal;
+                    document.getElementById("output").innerText = curVal;
+                //拼接第二个待运算变量
+                } else {
+                    curRes = curRes + tempVal;
+                    document.getElementById("output").innerText = curRes;
+                };
+            }
+
+            //初始化变量 => 归零
+            init = function(){
+                curVal = 0;
+                curRes = 0;
+                type = "";
+                res = 0;
+            }
+
+            //取消函数
+            cancel = function(){
+                //初始化所有变量
+                init();
+                document.getElementById("output").innerText = res;
+            }
+
+            //确认函数
+            confirm = function(){
+                //有运算符则进行计算
+                if(type != ""){
+                    cacluate(curVal, curRes, type);
+                //没有运算符， 输出ERROR
+                } else {
+                    document.getElementById("output").innerText = "ERROR";
+                }
+            }
+
+            //获取运算符
+            getType = function(val){
+                if(type == "") type = val.innerText;
+                document.getElementById("output").innerText = type;
+                //重置临时变量
+                tempVal = 0;
+            }
+        }
+    </script>
+
+    <div class="div1">
+        <div class="div2">
+            <p onclick="getType(this)">+</p><br>
+            <p onclick="getType(this)">-</p><br>
+            <p onclick="getType(this)">*</p><br>
+            <p onclick="getType(this)">/</p><br>
+        </div>
+        <div class="div3">
+            <!-- 头部-->
+            <div id="output" class="div4">0</div>
+            <!-- 身体-->
+            <table class="div5">
+                <tr>
+                    <td onclick="getValue(this)">1</td>
+                    <td onclick="getValue(this)">2</td>
+                    <td onclick="getValue(this)">3</td>
+                </tr>
+                <tr>
+                    <td onclick="getValue(this)">4</td>
+                    <td onclick="getValue(this)">5</td>
+                    <td onclick="getValue(this)">6</td>
+                </tr>
+                <tr>
+                    <td onclick="getValue(this)">7</td>
+                    <td onclick="getValue(this)">8</td>
+                    <td onclick="getValue(this)">9</td>
+                </tr>
+                <tr><td onclick="getValue(this)">0</td>
+                    <td onclick="confirm()">确定</td>
+                    <td onclick="cancel()">清零</td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <style>
+        .div1{
+            display: flex;
+            flex-direction: row;
+            border: 1px solid black;
+        }
+        .div2{
+            width: 200px;
+            padding: 40px;
+            border: 1px solid balck;
+        }
+        .div3{
+            width: 500px;
+            padding: 10px;
+            flex-direction: column;
+        }
+        .div4{
+            width: 470px;
+            margin: 10px;
+            border: 1px solid black;
+
+        }
+        .div5{
+            width: 500px;
+            padding: 50px;
+            border: 1px solid black;
+        }
+
+        td{
+            background-color: aliceblue;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        p{
+            border: 1px solid black;
+            background-color: aliceblue;
+            text-align: center;
+        }
+
+    </style>
+</body>
+</html>

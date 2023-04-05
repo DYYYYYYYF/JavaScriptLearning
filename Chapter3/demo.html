@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    🚀<br>
+    <script>
+        //字符串
+        var str = "aaa";
+        document.write(str.big()+"<br>")
+        document.write(str.small() + "<br>")
+        document.write(str.strike()+"<br>")
+
+        //日期
+        var data = new Date();
+        document.write(data + "<br>")
+
+        //Event
+        window.onkeydown = function(evt){
+            document.write(evt)
+        }
+
+        //数组
+        var arr = [1,2,3,4,5,9, 100];
+        document.write(arr[2] + "<br>")
+        var i = 0;
+        for(i =0; i<arr.length; i++){
+            document.write(arr[i] + " ")
+        }
+
+        //String
+        var str1 = "linjq";
+        //字符串匹配
+        var rs = str1.match("lin");
+        if(rs) document.write("aaa");
+        else document.write("bbb");
+
+        alert("a")
+        
+    </script>
+</body>
+</html>

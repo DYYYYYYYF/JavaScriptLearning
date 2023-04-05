@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       window.onload = function(){
+        var p = document.getElementsByTagName("p");
+        // var child = document.createElement("div");
+        // child.append("nice!");
+        // p.appendChild(child)
+
+        var i=0;
+        for(i=0; i<p.length; i++){
+            console.log(i + ": " + p[i].innerText)
+            p[i].innerText = "hhh";
+        }
+
+        //每过time毫秒执行一次 （）=> func(), time/ms
+       var intervalID =  window.setInterval( function(){
+            var p = document.getElementById("a");
+        var child = document.createElement("div");
+        child.append("nice!");
+        p.appendChild(child)
+        }, 1000)
+
+        //只执行一次 （）=> func(), time/ms
+        window.setTimeout( function(){
+            window.clearInterval(intervalID)
+            console.log("clearInterval");
+        }, 3000)
+       }
+    </script>
+    <p id="a" class="b">aaa</p> 
+    <p>bbb</p>
+    <p>ccc</p>
+</body>
+</html>
